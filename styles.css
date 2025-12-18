@@ -1,0 +1,310 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  background: rgba(0,0,0,.6);
+  z-index: 1000;
+}
+
+.nav {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+}
+
+.logo {
+  color: #1abc9c;
+  font-weight: bold;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+  url('foto1.JPG') center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 48px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 30px;
+  background: #1abc9c;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+.btn.light {
+  background: #fff;
+  color: #1abc9c;
+}
+
+.section {
+  padding: 90px 20px;
+  text-align: center;
+}
+
+.section.light {
+  background: #f4f4f4;
+}
+
+.about-content {
+  max-width: 1100px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  text-align: left;
+}
+
+.about-content img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.services-grid {
+  max-width: 1000px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.service {
+  padding: 30px;
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(0,0,0,.08);
+}
+
+.cta {
+  background: #1abc9c;
+  color: #fff;
+  padding: 70px 20px;
+}
+
+footer {
+  background: #111;
+  color: #aaa;
+  text-align: center;
+  padding: 25px;
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+  .services-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+/* KEGIATAN FOTO */
+.kegiatan-grid {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.kegiatan-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.12);
+}
+
+.kegiatan-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+
+.kegiatan-card:hover img {
+  transform: scale(1.1);
+}
+
+.kegiatan-card .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  opacity: 0;
+  transition: .4s;
+}
+
+.kegiatan-card:hover .overlay {
+  opacity: 1;
+}
+
+.kegiatan-card h4 {
+  background: #1abc9c;
+  padding: 10px 20px;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+@media (max-width: 992px) {
+  .kegiatan-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .kegiatan-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* CAPTION FADE-IN */
+.caption {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: .4s ease;
+}
+
+.kegiatan-item:hover .caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* POPUP GALLERY */
+.gallery-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 9999;
+}
+
+.gallery-popup img {
+  max-width: 80%;
+  max-height: 70vh;
+}
+
+
+.gallery-popup p {
+  color: #fff;
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+.gallery-popup .close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media (max-width: 576px) {
+  .hero-content h1 {
+    font-size: 32px;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+  }
+
+  .gallery-popup img {
+    max-width: 95%;
+    max-height: 60vh;
+  }
+
+  .gallery-popup p {
+    font-size: 14px;
+    text-align: center;
+    padding: 0 15px;
+  }
+}
+
+/* BACKGROUND POPUP */
+.detail-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.4s ease;
+  z-index: 9999;
+}
+
+/* AKTIF */
+.detail-popup.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* BOX */
+.detail-box {
+  background: #fff;
+  max-width: 600px;
+  padding: 35px;
+  border-radius: 8px;
+  transform: scale(0.7);
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+.detail-popup.active .detail-box {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* CLOSE */
+.detail-box .close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width: 576px) {
+  .detail-box {
+    width: 90%;
+    padding: 25px;
+  }
+}
